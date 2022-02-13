@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>Conversion App</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body ng-controller="myController">
+    <div class="jumbotron">
+      <h1>CONVERSION APP</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-outline">
+            <input
+              type="number"
+              id="kelvin"
+              ng-change="ktoc(kelvin)"
+              ng-model="kelvin"
+              class="form-control"
+            />
+            <label class="form-label" for="typeNumber">Kelvin</label>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="text-center">TO</div>
+        </div>
+        <div class="col-4">
+          <div class="form-outline">
+            <input
+              type="number"
+              id="celsius"
+              ng-model="celsius"
+              ng-change="ctok(celsius)"
+              step=".01"
+              class="form-control"
+            />
+            <label class="form-label" for="typeNumber">Celsius</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="form-outline">
+            <input
+              type="number"
+              id="kilo"
+              ng-model="kilo"
+              ng-change="ktom(kilo)"
+              class="form-control"
+            />
+            <label class="form-label" for="typeNumber">Kilometetres</label>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="text-center">TO</div>
+        </div>
+        <div class="col-4">
+          <div class="form-outline">
+            <input
+              type="number"
+              id="miles"
+              ng-model="miles"
+              ng-change="mtok(miles)"
+              class="form-control"
+            />
+            <label class="form-label" for="typeNumber">Miles</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">From Unit</th>
+          <th scope="col">From Value</th>
+          <th scope="col">To Unit</th>
+          <th scope="col">To value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="conversion in conversions">
+          <td>{{conversion.fromUnit}}</td>
+          <td>{{conversion.fromValue}}</td>
+          <td>{{conversion.toUnit}}</td>
+          <td>{{conversion.toValue}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
